@@ -1,0 +1,42 @@
+/**
+ Java Level 1 Lesson 3 Homework
+
+ @author Alisa Kurbatova
+ @version Aug 19, 2018
+ */
+import java.util.Scanner;
+import java.lang.Math;
+public class Guess {
+    public static void main(String[] args) {
+        GuessNumber();
+    }
+    public static void GuessNumber() {
+        Scanner in = new Scanner(System.in);
+
+        int a, n = (int) (Math.random() * 20 - 10);
+        System.out.println("Компьютер загадал число от 0 до 9, угадайте это число с 3 попыток.");
+        for (int i = 0; i < 3; i++) {
+            System.out.println("Попытка " + (i + 1) + ": ");
+            a = in.nextInt();
+            if (a < n) System.out.println("Число больше введеного!");
+            if (a > n) System.out.println("Число меньше введеного!");
+            if (a == n) {
+                System.out.println("Вы угадали!");
+                System.out.println("Повторить игру еще раз? 1 – да / 0 – нет");
+                a = in.nextInt();
+                if (a == 1) GuessNumber();
+                else {
+                    System.out.println("Спасибо за игру!");
+                    break;
+                }
+            }
+        }
+        System.out.println("Вы не угадали :");
+        System.out.println("Повторить игру еще раз? 1 – да / 0 – нет");
+        a = in.nextInt();
+        if (a == 1) GuessNumber();
+        else {
+            System.out.println("Спасибо за игру!");
+            }
+        }
+    }
